@@ -1,0 +1,7 @@
+In der ersten Zeile steht die Anzahl der Strecken.
+In jeder folgenden Zeile sind die Endpunkte der Strecken angegeben.  Jede Zeile enthält also
+die x-Koordinate von Endpunkt 1
+die y-Koordinate von Endpunkt 1
+die x-Koordinate von Endpunkt 2
+die y-Koordinate von Endpunkt 2
+Die Koordinatenwerte sind als Gleitkommazahlen (float) angegeben.
