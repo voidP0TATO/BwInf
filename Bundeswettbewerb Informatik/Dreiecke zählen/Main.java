@@ -6,7 +6,8 @@ public class Main {
 	private Line[] lines;
 	private List<Triangle> triangles;
 	private int linecount,trianglecount;
-	private  String path = "D:/Downloads/Bundeswettbewerb Informatik/Dreiecke zählen/dreiecke1.txt";
+	private String pathin = "D:/Downloads/Bundeswettbewerb Informatik/Dreiecke zählen/dreiecke1.txt";
+	private String pathout = "D:/Downloads/Bundeswettbewerb Informatik/Dreiecke zählen/dreiecke1lösung.txt";
 	
 	public static void main(String[] args){
 		
@@ -27,7 +28,7 @@ public class Main {
 		
 		Reader r = new Reader();
 		
-		String[] linesstring = r.loadFile(path);
+		String[] linesstring = r.loadFile(pathin);
 		
 		lines = r.loadLines(linesstring);
 		
@@ -38,6 +39,8 @@ public class Main {
 	}
 	
 	private void findtriangles(){
+		
+		Writer w = new Writer(pathout);
 		
 		System.out.println("searching for triangles");
 		trianglecount = 0;
@@ -50,6 +53,7 @@ public class Main {
 					if(t != null){
 						triangles.add(t);
 						System.out.println("Triangle: " + a + " " + b + " "+ c);
+						w.addLine("(" + t.x1 + "|" + t.y1 + ") (" + t.x2 + "|" + t.y2 + ") (" + t.x3 + "|" + t.y3 + ")");
 						trianglecount++;
 					}
 				}
@@ -57,7 +61,8 @@ public class Main {
 		}
 		
 		System.out.println("found " + trianglecount + " triangles");
-		
+		w.addLine(String.valueOf(trianglecount));
+		w.writefile();
 	}
 	
 	private Triangle findTriangle(Line l1, Line l2, Line l3){
@@ -91,7 +96,10 @@ public class Main {
 			
 		}
 		
-		float x = (l2.t - l1.t)/(l1.m - l2.m);
+		float h = (l2.t - l1.t)*1000000; // tp prevent round issues
+		float g = (l1.m - l2.m)*1000000;
+		
+		float x = h/g;
 		float y = (l1.m * x) + l1.t;
 		if( y != y){
 			
