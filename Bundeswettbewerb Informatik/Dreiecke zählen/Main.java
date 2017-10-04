@@ -6,8 +6,8 @@ public class Main {
 	private Line[] lines;
 	private List<Triangle> triangles;
 	private int linecount,trianglecount;
-	private String pathin = "D:/Downloads/Bundeswettbewerb Informatik/Dreiecke zählen/dreiecke1.txt";
-	private String pathout = "D:/Downloads/Bundeswettbewerb Informatik/Dreiecke zählen/dreiecke1lösung.txt";
+	private String pathin = "D:/Downloads/Bundeswettbewerb Informatik/Dreiecke zählen/dreiecke3.txt";
+	private String pathout = "D:/Downloads/Bundeswettbewerb Informatik/Dreiecke zählen/dreiecke3lösung.txt";
 	
 	public static void main(String[] args){
 		
