@@ -16,7 +16,7 @@ public class Main {
 		
 		Reader reader = new Reader();
 		cities = reader.loadFile(path);
-		getlicenseplates("BUNDESWETTBEWERBINFORMATIK");
+		getlicenseplates("VERKEHRSWEGEPLANUNGSBESCHLEUNIGUNGSGESETZ");
 		
 	}
 	
