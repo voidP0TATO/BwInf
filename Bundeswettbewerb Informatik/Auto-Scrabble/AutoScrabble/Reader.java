@@ -43,6 +43,7 @@ public class Reader {
 			}
 			
 			System.out.println("loaded lines");
+			reader.close();
 			return finish;
 			
 		} catch (IOException e) {
