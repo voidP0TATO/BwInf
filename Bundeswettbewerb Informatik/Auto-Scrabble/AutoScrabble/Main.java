@@ -3,8 +3,10 @@ package AutoScrabble;
 import java.util.ArrayList;
 
 public class Main {
-	String path = "D:/Downloads/Bundeswettbewerb Informatik/Auto-Scrabble/kuerzelliste.txt";
+	
+	String path = "S:/StephanH/kuerzelliste.txt";
 	String[] cities;
+	ArrayList<String> solutions;
 	
 	public static void main(String[] args){
 		
@@ -16,7 +18,7 @@ public class Main {
 		
 		Reader reader = new Reader();
 		cities = reader.loadFile(path);
-		getlicenseplates("VERKEHRSWEGEPLANUNGSBESCHLEUNIGUNGSGESETZ");
+		getlicenseplates("BADEN");
 		
 	}
 	
@@ -25,6 +27,8 @@ public class Main {
 		String original = word;
 		String rest;
 		String[] finish;
+		
+		solutions = new ArrayList<String>();
 		
 		for(int k = 2; k <= original.length() && k <= 5; k++){
 		
@@ -36,6 +40,7 @@ public class Main {
 				
 				for(int i = 0; i < finish.length; i++ ){
 					
+					solutions.add(finish[i]);
 					System.out.println(finish[i]);
 				
 				}
@@ -65,6 +70,7 @@ public class Main {
 				
 				for(int i = 0; i < finish.length; i++ ){
 					
+					solutions.add(plates + " + " + finish[i]);
 					System.out.println(plates + " + " + finish[i]);
 				
 				}
@@ -108,7 +114,7 @@ public class Main {
 				
 				if(part.length() <= 2){
 					
-					re.add(cities[i] + "-" + part);
+					re.add(cities[i] + ":" + part + " xx ");
 					found++;
 					
 				}
@@ -122,7 +128,6 @@ public class Main {
 		for(String finish : re){
 			
 			ret[found-1] = finish;
-			//System.out.println(finish);
 			found--;
 			
 		}
